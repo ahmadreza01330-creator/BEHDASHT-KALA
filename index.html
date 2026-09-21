@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ثبت نام فروشنده | بهداشت کالا</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="register-page">
+
+        <div class="register-box">
+
+            <div class="logo">
+                🛡️
+            </div>
+
+            <h1>بهداشت کالا</h1>
+
+            <p class="subtitle">
+                ثبت نام فروشنده
+            </p>
+
+            <p class="description">
+                به سامانه مدیریت و مراقبت از کالاها خوش آمدید
+            </p>
+
+
+            <form id="registerForm">
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+                        <label>نام</label>
+                        <input
+                            type="text"
+                            id="firstName"
+                            placeholder="مثلاً احمدرضا"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="input-group">
+                        <label>نام خانوادگی</label>
+                        <input
+                            type="text"
+                            id="lastName"
+                            placeholder="مثلاً رضایی"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="input-group">
+                        <label>شماره تلفن</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="09123456789"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="input-group">
+                        <label>نام فروشگاه</label>
+                        <input
+                            type="text"
+                            id="storeName"
+                            placeholder="مثلاً فروشگاه بهار"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="input-group">
+                        <label>نوع فروشگاه</label>
+
+                        <select id="storeType" required>
+
+                            <option value="">
+                                انتخاب نوع فروشگاه
+                            </option>
+
+                            <option value="سوپرمارکت">
+                                سوپرمارکت
+                            </option>
+
+                            <option value="فروشگاه مواد غذایی">
+                                فروشگاه مواد غذایی
+                            </option>
+
+                            <option value="داروخانه">
+                                داروخانه
+                            </option>
+
+                            <option value="فروشگاه آرایشی">
+                                فروشگاه آرایشی
+                            </option>
+
+                            <option value="فروشگاه بهداشتی">
+                                فروشگاه بهداشتی
+                            </option>
+
+                            <option value="سایر">
+                                سایر
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+                        <label>استان</label>
+
+                        <input
+                            type="text"
+                            id="province"
+                            placeholder="مثلاً لرستان"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+                        <label>شهرستان</label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="مثلاً کوهدشت"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+                        <label>کد پستی</label>
+
+                        <input
+                            type="text"
+                            id="postalCode"
+                            placeholder="۱۰ رقمی"
+                            maxlength="10"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group full">
+                        <label>آدرس فروشگاه</label>
+
+                        <textarea
+                            id="address"
+                            placeholder="آدرس کامل فروشگاه را وارد کنید..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="input-group">
+                        <label>نام کاربری</label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="نام کاربری"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+                        <label>رمز عبور</label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="حداقل ۶ کاراکتر"
+                            minlength="6"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="register-btn">
+
+                    ثبت نام فروشنده
+
+                    <span>←</span>
+
+                </button>
+
+            </form>
+
+
+            <div id="message"></div>
+
+
+            <div class="footer-text">
+                بهداشت کالا؛ مراقب کالاها باش، سالم به مردم تحویل بده.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

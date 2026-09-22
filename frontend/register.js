@@ -32,11 +32,9 @@ function loadProvinces() {
                 document.createElement("option");
 
             option.value = province;
-
             option.textContent = province;
 
             provinceSelect.appendChild(option);
-
         });
 }
 
@@ -68,21 +66,25 @@ provinceSelect.addEventListener(
         const cities =
             IRAN_LOCATIONS[province];
 
+        if (!cities) {
+
+            citySelect.disabled = true;
+
+            return;
+        }
+
         cities.forEach(function (city) {
 
             const option =
                 document.createElement("option");
 
             option.value = city;
-
             option.textContent = city;
 
             citySelect.appendChild(option);
-
         });
 
         citySelect.disabled = false;
-
     }
 );
 
@@ -102,7 +104,6 @@ document
                     /[^0-9]/g,
                     ""
                 );
-
         }
     );
 
@@ -122,7 +123,6 @@ document
                     /[^0-9]/g,
                     ""
                 );
-
         }
     );
 
@@ -277,17 +277,19 @@ registerForm.addEventListener(
 
 
         submitButton.disabled = true;
-
         submitButton.style.opacity = "0.6";
 
 
         try {
 
+            // ==================================
+            // ارسال اطلاعات به سرور
+            // ==================================
+
             const response =
                 await fetch(
                     "/api/register",
                     {
-
                         method: "POST",
 
                         headers: {
@@ -329,15 +331,47 @@ registerForm.addEventListener(
 
                             password:
                                 password
-
                         })
-
                     }
                 );
 
 
-            const result =
-                await response.json();
+            // ==================================
+            // بررسی نوع پاسخ سرور
+            // ==================================
+
+            const contentType =
+                response.headers.get(
+                    "content-type"
+                ) || "";
+
+
+            let result;
+
+
+            if (
+                contentType.includes(
+                    "application/json"
+                )
+            ) {
+
+                result =
+                    await response.json();
+
+            } else {
+
+                const serverText =
+                    await response.text();
+
+                console.error(
+                    "SERVER RESPONSE:",
+                    serverText
+                );
+
+                throw new Error(
+                    `خطای سرور (${response.status})`
+                );
+            }
 
 
             console.log(
@@ -346,7 +380,14 @@ registerForm.addEventListener(
             );
 
 
-            if (result.success) {
+            // ==================================
+            // ثبت نام موفق
+            // ==================================
+
+            if (
+                response.ok &&
+                result.success
+            ) {
 
                 showMessage(
                     "✅ ثبت نام با موفقیت انجام شد!",
@@ -363,6 +404,7 @@ registerForm.addEventListener(
                     </option>
                 `;
 
+
                 citySelect.disabled = true;
 
 
@@ -377,18 +419,22 @@ registerForm.addEventListener(
                 );
 
 
-            } else {
-
-                showMessage(
-                    "❌ " +
-                    (
-                        result.message ||
-                        "ثبت نام انجام نشد."
-                    ),
-                    "#ff7b7b"
-                );
-
+                return;
             }
+
+
+            // ==================================
+            // خطای ثبت نام
+            // ==================================
+
+            showMessage(
+                "❌ " +
+                (
+                    result.message ||
+                    "ثبت نام انجام نشد."
+                ),
+                "#ff7b7b"
+            );
 
 
         } catch (error) {
@@ -399,17 +445,25 @@ registerForm.addEventListener(
             );
 
 
+            // ==================================
+            // نمایش خطای واقعی
+            // ==================================
+
             showMessage(
-                "❌ اتصال به سرور برقرار نشد.",
+                "❌ " +
+                (
+                    error.message ||
+                    "ارتباط با سرور برقرار نشد."
+                ),
                 "#ff7b7b"
             );
 
+
+        } finally {
+
+            submitButton.disabled = false;
+            submitButton.style.opacity = "1";
         }
-
-
-        submitButton.disabled = false;
-
-        submitButton.style.opacity = "1";
 
     }
 );
@@ -429,7 +483,6 @@ function showMessage(
 
     registerMessage.style.color =
         color;
-
 }
 
 

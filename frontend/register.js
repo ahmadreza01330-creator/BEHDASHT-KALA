@@ -1,3 +1,4 @@
+
 const registerForm =
     document.getElementById("registerForm");
 
@@ -51,13 +52,11 @@ provinceSelect.addEventListener(
         const province =
             provinceSelect.value;
 
-
         citySelect.innerHTML = `
             <option value="">
                 انتخاب شهرستان / شهر
             </option>
         `;
-
 
         if (!province) {
 
@@ -66,10 +65,8 @@ provinceSelect.addEventListener(
             return;
         }
 
-
         const cities =
             IRAN_LOCATIONS[province];
-
 
         cities.forEach(function (city) {
 
@@ -83,7 +80,6 @@ provinceSelect.addEventListener(
             citySelect.appendChild(option);
 
         });
-
 
         citySelect.disabled = false;
 
@@ -141,13 +137,11 @@ registerForm.addEventListener(
 
         event.preventDefault();
 
-
         const firstName =
             document
                 .getElementById("firstName")
                 .value
                 .trim();
-
 
         const lastName =
             document
@@ -155,13 +149,11 @@ registerForm.addEventListener(
                 .value
                 .trim();
 
-
         const phone =
             document
                 .getElementById("phone")
                 .value
                 .trim();
-
 
         const storeName =
             document
@@ -169,24 +161,20 @@ registerForm.addEventListener(
                 .value
                 .trim();
 
-
         const storeType =
             document
                 .getElementById("storeType")
                 .value;
-
 
         const province =
             document
                 .getElementById("province")
                 .value;
 
-
         const city =
             document
                 .getElementById("city")
                 .value;
-
 
         const address =
             document
@@ -194,20 +182,17 @@ registerForm.addEventListener(
                 .value
                 .trim();
 
-
         const postalCode =
             document
                 .getElementById("postalCode")
                 .value
                 .trim();
 
-
         const username =
             document
                 .getElementById("username")
                 .value
                 .trim();
-
 
         const password =
             document
@@ -300,7 +285,7 @@ registerForm.addEventListener(
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/register",
+                    "/api/register",
                     {
 
                         method: "POST",
@@ -415,7 +400,7 @@ registerForm.addEventListener(
 
 
             showMessage(
-                "❌ اتصال به سرور برقرار نشد. ابتدا backend را اجرا کنید.",
+                "❌ اتصال به سرور برقرار نشد.",
                 "#ff7b7b"
             );
 

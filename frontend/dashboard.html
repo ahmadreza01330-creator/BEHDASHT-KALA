@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,344 +10,145 @@
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Tahoma, Arial, sans-serif;
-            background: #f4f7fb;
-            color: #172033;
-            min-height: 100vh;
+            background: #f1f5f9;
+            color: #0f172a;
         }
-
-        button,
-        input,
-        select,
-        textarea {
-            font-family: inherit;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        /* ================= HEADER ================= */
 
         header {
-            background: linear-gradient(135deg, #0f766e, #115e59);
+            background: linear-gradient(135deg, #166534, #15803d);
             color: white;
-            padding: 18px 5%;
-            box-shadow: 0 4px 20px rgba(0,0,0,.12);
+            padding: 20px;
         }
 
-        .header-inner {
-            max-width: 1400px;
+        .header-content {
+            max-width: 1300px;
             margin: auto;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 20px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
-            background: rgba(255,255,255,.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 25px;
-        }
-
-        .brand h1 {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .brand p {
-            font-size: 11px;
-            opacity: .85;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .today {
-            background: rgba(255,255,255,.12);
-            padding: 10px 14px;
-            border-radius: 12px;
-            font-size: 12px;
-        }
-
-        .logout-btn {
-            border: 0;
-            background: #fff;
-            color: #b91c1c;
-            padding: 11px 15px;
-            border-radius: 11px;
-            font-weight: bold;
-        }
-
-        /* ================= CONTAINER ================= */
-
-        .container {
-            width: min(1400px, 92%);
-            margin: 25px auto 50px;
-        }
-
-        /* ================= TODAY EXPIRY ================= */
-
-        .expiry-notification {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translate(-50%, -160%);
-            width: min(92%, 650px);
-            background: white;
-            border-right: 6px solid #ef4444;
-            border-radius: 18px;
-            padding: 17px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            box-shadow: 0 15px 45px rgba(0,0,0,.22);
-            z-index: 9999;
-            transition: .4s ease;
-        }
-
-        .expiry-notification.show {
-            transform: translate(-50%, 0);
-        }
-
-        .notification-icon {
-            width: 52px;
-            height: 52px;
-            flex-shrink: 0;
-            border-radius: 15px;
-            background: #fee2e2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-        }
-
-        .notification-content {
-            flex: 1;
-        }
-
-        .notification-content strong {
-            display: block;
-            color: #991b1b;
-            font-size: 15px;
-            margin-bottom: 6px;
-        }
-
-        .notification-content p {
-            color: #64748b;
-            font-size: 12px;
-            line-height: 1.8;
-        }
-
-        .notification-close {
-            width: 35px;
-            height: 35px;
-            border: 0;
-            border-radius: 10px;
-            background: #f1f5f9;
-            color: #475569;
-            font-size: 17px;
-        }
-
-        /* ================= WELCOME ================= */
-
-        .welcome {
-            background: white;
-            border-radius: 20px;
-            padding: 22px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 20px rgba(15,23,42,.06);
-        }
-
-        .welcome h2 {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        .welcome p {
-            color: #64748b;
-            font-size: 13px;
-            line-height: 1.9;
-        }
-
-        /* ================= STATS ================= */
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: 18px;
-            padding: 20px;
-            box-shadow: 0 5px 20px rgba(15,23,42,.06);
-            display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        .stat-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
+        .brand h1 {
+            margin: 0;
+            font-size: 25px;
         }
 
-        .stat-card:nth-child(1) .stat-icon {
-            background: #dbeafe;
+        .brand p {
+            margin: 7px 0 0;
+            opacity: .9;
+            font-size: 13px;
         }
 
-        .stat-card:nth-child(2) .stat-icon {
-            background: #fef3c7;
+        .logout {
+            border: none;
+            background: rgba(255,255,255,.15);
+            color: white;
+            padding: 11px 18px;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
-        .stat-card:nth-child(3) .stat-icon {
-            background: #fee2e2;
+        main {
+            max-width: 1300px;
+            margin: 25px auto;
+            padding: 0 15px;
         }
 
-        .stat-card:nth-child(4) .stat-icon {
-            background: #dcfce7;
+        .welcome {
+            background: white;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
         }
 
-        .stat-info small {
-            display: block;
+        .welcome h2 {
+            margin-top: 0;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
+        }
+
+        .stat-title {
             color: #64748b;
-            font-size: 11px;
-            margin-bottom: 5px;
+            font-size: 14px;
         }
 
-        .stat-info strong {
-            font-size: 24px;
+        .stat-number {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 8px;
         }
-
-        /* ================= TOOLBAR ================= */
 
         .toolbar {
             background: white;
-            border-radius: 18px;
-            padding: 16px;
+            padding: 18px;
+            border-radius: 16px;
             margin-bottom: 20px;
-            box-shadow: 0 5px 20px rgba(15,23,42,.06);
             display: flex;
-            flex-wrap: wrap;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
-        .search-box {
+        .toolbar input,
+        .toolbar select {
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .toolbar input {
             flex: 1;
             min-width: 220px;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            height: 46px;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 0 43px 0 12px;
-            outline: none;
-        }
-
-        .search-box span {
-            position: absolute;
-            right: 14px;
-            top: 13px;
-        }
-
-        .toolbar select {
-            min-width: 150px;
-            height: 46px;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 0 12px;
-            background: white;
-            outline: none;
         }
 
         .add-btn {
-            border: 0;
-            height: 46px;
-            padding: 0 20px;
-            border-radius: 12px;
-            background: #0f766e;
+            background: #16a34a;
             color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            cursor: pointer;
             font-weight: bold;
         }
 
-        .add-btn:hover {
-            background: #115e59;
-        }
-
-        /* ================= SECTION ================= */
-
-        .section-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }
-
-        .section-title h3 {
-            font-size: 17px;
-        }
-
-        .section-title span {
-            color: #64748b;
-            font-size: 12px;
-        }
-
-        /* ================= PRODUCTS ================= */
-
         .products {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
         }
 
-        .product-card {
+        .product {
             background: white;
             border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(15,23,42,.06);
-            transition: .25s;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(15,23,42,.10);
+            box-shadow: 0 5px 20px rgba(0,0,0,.06);
         }
 
         .product-image {
-            height: 190px;
-            background: #f1f5f9;
-            position: relative;
+            height: 180px;
+            background: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
         }
 
@@ -357,418 +159,188 @@
         }
 
         .no-image {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 50px;
-            color: #94a3b8;
-        }
-
-        .expiry-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 7px 10px;
-            border-radius: 9px;
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-        }
-
-        .expiry-green {
-            background: #16a34a;
-        }
-
-        .expiry-orange {
-            background: #f59e0b;
-        }
-
-        .expiry-red {
-            background: #dc2626;
-        }
-
-        .expiry-black {
-            background: #334155;
         }
 
         .product-body {
-            padding: 15px;
+            padding: 17px;
         }
 
-        .product-body h4 {
-            font-size: 15px;
-            margin-bottom: 7px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .category {
-            display: inline-block;
-            background: #ecfdf5;
-            color: #047857;
-            padding: 4px 8px;
-            border-radius: 7px;
-            font-size: 10px;
-            margin-bottom: 12px;
+        .product-name {
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         .product-info {
+            color: #64748b;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .expiry {
+            margin: 12px 0;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .green {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .orange {
+            background: #ffedd5;
+            color: #9a3412;
+        }
+
+        .red {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .black {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 8px;
         }
 
-        .info-item {
-            background: #f8fafc;
-            padding: 8px;
-            border-radius: 9px;
-        }
-
-        .info-item small {
-            display: block;
-            color: #64748b;
-            font-size: 9px;
-            margin-bottom: 4px;
-        }
-
-        .info-item strong {
-            font-size: 11px;
-        }
-
-        .stock-good {
-            color: #16a34a;
-        }
-
-        .stock-low {
-            color: #dc2626;
-        }
-
-        .product-actions {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 5px;
-            margin-top: 12px;
-        }
-
-        .product-actions button {
-            border: 0;
-            border-radius: 9px;
-            height: 35px;
-            font-size: 12px;
-            background: #f1f5f9;
-        }
-
-        .product-actions button:hover {
-            background: #e2e8f0;
-        }
-
-        .empty {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-            border-radius: 18px;
-            color: #64748b;
-        }
-
-        /* ================= MODAL ================= */
-
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(15,23,42,.60);
-            z-index: 10000;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-box {
-            width: min(700px, 100%);
-            max-height: 92vh;
-            overflow-y: auto;
-            background: white;
-            border-radius: 20px;
-            padding: 24px;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-header h3 {
-            font-size: 18px;
-        }
-
-        .close-btn {
-            width: 38px;
-            height: 38px;
-            border: 0;
-            border-radius: 10px;
-            background: #f1f5f9;
-            font-size: 20px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 13px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        .form-group label {
-            font-size: 11px;
-            font-weight: bold;
-            color: #475569;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            border: 1px solid #dbe3ec;
-            border-radius: 10px;
-            min-height: 43px;
-            padding: 9px 11px;
-            outline: none;
-            background: white;
-        }
-
-        .form-group textarea {
-            min-height: 90px;
-            resize: vertical;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #0f766e;
-        }
-
-        .form-note {
-            background: #f0fdfa;
-            color: #0f766e;
+        .actions button {
+            border: none;
             padding: 10px;
-            border-radius: 10px;
-            font-size: 10px;
-            line-height: 1.8;
-            margin-bottom: 14px;
+            border-radius: 9px;
+            cursor: pointer;
         }
 
-        .image-preview {
-            width: 110px;
-            height: 110px;
-            border-radius: 12px;
-            object-fit: cover;
-            display: none;
-            margin-top: 8px;
+        .details {
+            background: #e0f2fe;
         }
 
-        .modal-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .modal-actions button {
-            flex: 1;
-            height: 45px;
-            border: 0;
-            border-radius: 11px;
-            font-weight: bold;
-        }
-
-        .save-btn {
-            background: #0f766e;
-            color: white;
-        }
-
-        .cancel-btn {
-            background: #f1f5f9;
-            color: #334155;
-        }
-
-        /* ================= DETAILS ================= */
-
-        .details-list {
-            display: grid;
-            gap: 9px;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            padding: 12px;
-            background: #f8fafc;
-            border-radius: 10px;
-        }
-
-        .detail-row span:first-child {
-            color: #64748b;
-            font-size: 11px;
-        }
-
-        .detail-row span:last-child {
-            font-size: 12px;
-            font-weight: bold;
-            text-align: left;
-        }
-
-        /* ================= INVENTORY ================= */
-
-        .inventory-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .inventory-buttons button {
-            border: 0;
-            height: 45px;
-            border-radius: 11px;
-            font-weight: bold;
-        }
-
-        .add-stock {
+        .inventory {
             background: #dcfce7;
-            color: #166534;
         }
 
-        .remove-stock {
+        .edit {
+            background: #fef3c7;
+        }
+
+        .delete {
             background: #fee2e2;
             color: #991b1b;
         }
 
-        /* ================= SCANNER ================= */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.55);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 1000;
+        }
 
-        #reader {
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-box {
             width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
         }
 
-        /* ================= RESPONSIVE ================= */
+        .modal-box h2 {
+            margin-top: 0;
+        }
 
-        @media (max-width: 1100px) {
-            .products {
-                grid-template-columns: repeat(3, 1fr);
-            }
+        .close {
+            float: left;
+            border: none;
+            background: #fee2e2;
+            color: #991b1b;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .inventory-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .inventory-row input,
+        .inventory-row select {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+        }
+
+        .inventory-add {
+            background: #16a34a;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 18px;
+            cursor: pointer;
+        }
+
+        .inventory-remove {
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 18px;
+            cursor: pointer;
+        }
+
+        .history {
+            margin-top: 20px;
+        }
+
+        .history-item {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
 
             .stats {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        @media (max-width: 750px) {
-            .header-inner {
-                align-items: flex-start;
-            }
+        @media (max-width: 600px) {
 
-            .header-actions {
+            .header-content {
                 flex-direction: column;
-            }
-
-            .today {
-                display: none;
-            }
-
-            .products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full {
-                grid-column: auto;
-            }
-        }
-
-        @media (max-width: 520px) {
-            .container {
-                width: 94%;
-                margin-top: 15px;
-            }
-
-            .brand h1 {
-                font-size: 16px;
-            }
-
-            .brand p {
-                font-size: 9px;
-            }
-
-            .brand-icon {
-                width: 42px;
-                height: 42px;
+                align-items: stretch;
             }
 
             .stats {
-                gap: 9px;
-            }
-
-            .stat-card {
-                padding: 13px;
-            }
-
-            .stat-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .stat-info strong {
-                font-size: 19px;
+                grid-template-columns: 1fr 1fr;
             }
 
             .products {
                 grid-template-columns: 1fr;
-            }
-
-            .toolbar {
-                padding: 11px;
-            }
-
-            .search-box,
-            .toolbar select,
-            .add-btn {
-                width: 100%;
-                min-width: 100%;
-            }
-
-            .modal {
-                padding: 10px;
-            }
-
-            .modal-box {
-                padding: 17px;
-            }
-
-            .product-actions {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -776,201 +348,132 @@
 
 <body>
 
-<!-- ================= هشدار انقضای امروز ================= -->
-
-<div id="expiryNotification" class="expiry-notification">
-
-    <div class="notification-icon">
-        ⚠️
-    </div>
-
-    <div class="notification-content">
-        <strong id="notificationTitle">
-            هشدار انقضای امروز
-        </strong>
-
-        <p id="notificationText">
-            کالایی امروز به تاریخ انقضا می‌رسد.
-        </p>
-    </div>
-
-    <button
-        class="notification-close"
-        onclick="closeExpiryNotification()">
-        ✕
-    </button>
-
-</div>
-
-
-<!-- ================= HEADER ================= -->
-
 <header>
 
-    <div class="header-inner">
+    <div class="header-content">
 
         <div class="brand">
 
-            <div class="brand-icon">
-                🛒
-            </div>
+            <h1>🛒 بهداشت کالا</h1>
 
-            <div>
-                <h1>بهداشت کالا</h1>
-
-                <p>
-                    مراقب کالاها باش، سالم به مردم تحویل بده.
-                </p>
-            </div>
+            <p>
+                مراقب کالاها باش، سالم به مردم تحویل بده.
+            </p>
 
         </div>
 
-        <div class="header-actions">
+        <button
+            class="logout"
+            onclick="logout()">
 
-            <div
-                class="today"
-                id="todayDate">
-                در حال دریافت تاریخ...
-            </div>
+            خروج از حساب
 
-            <button
-                class="logout-btn"
-                onclick="logout()">
-                خروج
-            </button>
-
-        </div>
+        </button>
 
     </div>
 
 </header>
 
 
-<!-- ================= MAIN ================= -->
+<main>
 
-<main class="container">
+    <div class="welcome">
 
-    <section class="welcome">
-
-        <h2 id="welcomeTitle">
-            سلام 👋
+        <h2>
+            سلام
+            <span id="sellerName">
+                فروشنده
+            </span>
+            👋
         </h2>
 
-        <p>
-            محصولات فروشگاهت را مدیریت کن و قبل از رسیدن تاریخ انقضا،
-            وضعیت کالاها را بررسی کن.
-        </p>
+        <div id="storeInfo">
+            در حال دریافت اطلاعات فروشگاه...
+        </div>
 
-    </section>
+    </div>
 
 
-    <!-- ================= STATS ================= -->
+    <div class="stats">
 
-    <section class="stats">
+        <div class="stat">
 
-        <div class="stat-card">
-
-            <div class="stat-icon">
-                📦
+            <div class="stat-title">
+                کل کالاها
             </div>
 
-            <div class="stat-info">
+            <div
+                class="stat-number"
+                id="totalProducts">
 
-                <small>
-                    کل کالاها
-                </small>
-
-                <strong id="totalProducts">
-                    0
-                </strong>
+                0
 
             </div>
 
         </div>
 
 
-        <div class="stat-card">
+        <div class="stat">
 
-            <div class="stat-icon">
-                ⏳
+            <div class="stat-title">
+                نزدیک به انقضا
             </div>
 
-            <div class="stat-info">
+            <div
+                class="stat-number"
+                id="nearExpiry">
 
-                <small>
-                    نزدیک انقضا
-                </small>
-
-                <strong id="nearExpiry">
-                    0
-                </strong>
+                0
 
             </div>
 
         </div>
 
 
-        <div class="stat-card">
+        <div class="stat">
 
-            <div class="stat-icon">
-                ⚠️
+            <div class="stat-title">
+                منقضی شده
             </div>
 
-            <div class="stat-info">
+            <div
+                class="stat-number"
+                id="expired">
 
-                <small>
-                    منقضی شده
-                </small>
-
-                <strong id="expired">
-                    0
-                </strong>
+                0
 
             </div>
 
         </div>
 
 
-        <div class="stat-card">
+        <div class="stat">
 
-            <div class="stat-icon">
-                📊
+            <div class="stat-title">
+                موجودی کم
             </div>
 
-            <div class="stat-info">
+            <div
+                class="stat-number"
+                id="lowStock">
 
-                <small>
-                    موجودی کم
-                </small>
-
-                <strong id="lowStock">
-                    0
-                </strong>
+                0
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- ================= TOOLBAR ================= -->
+    <div class="toolbar">
 
-    <section class="toolbar">
-
-        <div class="search-box">
-
-            <span>
-                🔎
-            </span>
-
-            <input
-                type="text"
-                id="search"
-                placeholder="جستجوی نام کالا یا بارکد..."
-                oninput="renderProducts()">
-
-        </div>
+        <input
+            id="search"
+            type="text"
+            placeholder="جستجوی نام کالا یا بارکد..."
+            oninput="renderProducts()"
+        >
 
 
         <select
@@ -986,26 +489,11 @@
             </option>
 
             <option value="expired">
-                منقضی شده
+                منقضی
             </option>
 
             <option value="low">
                 موجودی کم
-            </option>
-
-            <option value="new">
-                کالاهای جدید
-            </option>
-
-        </select>
-
-
-        <select
-            id="categoryFilter"
-            onchange="renderProducts()">
-
-            <option value="all">
-                همه دسته‌ها
             </option>
 
         </select>
@@ -1013,906 +501,1180 @@
 
         <button
             class="add-btn"
-            onclick="openAddModal()">
+            onclick="alert('فرم افزودن محصول در مرحله بعد اضافه می‌شود.')">
 
             ➕ افزودن کالا
 
         </button>
 
-    </section>
-
-
-    <!-- ================= PRODUCTS ================= -->
-
-    <div class="section-title">
-
-        <h3>
-            📦 لیست کالاها
-        </h3>
-
-        <span id="productCount">
-            0 کالا
-        </span>
-
     </div>
 
 
-    <section
-        class="products"
-        id="products">
-
-    </section>
+    <div
+        id="products"
+        class="products">
+    </div>
 
 </main>
 
 
-<!-- ================= ADD / EDIT MODAL ================= -->
+<!-- =========================
+     INVENTORY MODAL
+========================= -->
 
 <div
-    class="modal"
-    id="productModal">
+    id="inventoryModal"
+    class="modal">
 
     <div class="modal-box">
 
-        <div class="modal-header">
+        <button
+            class="close"
+            onclick="closeInventory()">
 
-            <h3 id="modalTitle">
-                افزودن کالا
-            </h3>
+            ×
 
-            <button
-                class="close-btn"
-                onclick="closeProductModal()">
-                ✕
-            </button>
+        </button>
 
-        </div>
 
+        <h2>
+            📦 مدیریت موجودی
+        </h2>
 
-        <div class="form-note">
 
-            📅 تاریخ تولید و تاریخ انقضا را خودت وارد کن.
-            سیستم فقط تعداد روز باقی‌مانده تا تاریخ انقضا را
-            به‌صورت خودکار محاسبه می‌کند.
+        <h3 id="inventoryProductName"></h3>
 
-        </div>
 
-
-        <form
-            id="productForm"
-            onsubmit="saveProduct(event)">
-
-            <div class="form-grid">
-
-                <div class="form-group">
-
-                    <label>
-                        نام کالا *
-                    </label>
-
-                    <input
-                        id="productName"
-                        required
-                        placeholder="مثلاً شیر کم‌چرب">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        دسته‌بندی
-                    </label>
-
-                    <input
-                        id="productCategory"
-                        placeholder="مثلاً لبنیات">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        قیمت خرید
-                    </label>
-
-                    <input
-                        type="number"
-                        id="purchasePrice"
-                        min="0"
-                        placeholder="تومان">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        قیمت فروش
-                    </label>
-
-                    <input
-                        type="number"
-                        id="salePrice"
-                        min="0"
-                        placeholder="تومان">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        موجودی
-                    </label>
-
-                    <input
-                        type="number"
-                        id="stock"
-                        min="0"
-                        value="0">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        حداقل موجودی
-                    </label>
-
-                    <input
-                        type="number"
-                        id="minimumStock"
-                        min="0"
-                        value="0">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        تاریخ تولید شمسی *
-                    </label>
-
-                    <input
-                        id="productionDate"
-                        required
-                        placeholder="1405/06/30">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        تاریخ انقضا شمسی *
-                    </label>
-
-                    <input
-                        id="expirationDate"
-                        required
-                        placeholder="1405/07/30">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        بارکد / کد کالا
-                    </label>
-
-                    <input
-                        id="barcode"
-                        placeholder="مثلاً 6261234567890">
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        تصویر کالا
-                    </label>
-
-                    <input
-                        type="file"
-                        id="productImage"
-                        accept="image/jpeg,image/png,image/webp,image/gif"
-                        onchange="previewImage(event)">
-
-                    <img
-                        id="imagePreview"
-                        class="image-preview">
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <label>
-                        توضیحات
-                    </label>
-
-                    <textarea
-                        id="description"
-                        placeholder="توضیحات کالا..."></textarea>
-
-                </div>
-
-            </div>
-
-
-            <div class="modal-actions">
-
-                <button
-                    type="submit"
-                    class="save-btn">
-
-                    💾 ذخیره کالا
-
-                </button>
-
-                <button
-                    type="button"
-                    class="cancel-btn"
-                    onclick="closeProductModal()">
-
-                    انصراف
-
-                </button>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- ================= DETAILS MODAL ================= -->
-
-<div
-    class="modal"
-    id="detailsModal">
-
-    <div class="modal-box">
-
-        <div class="modal-header">
-
-            <h3>
-                جزئیات کالا
-            </h3>
-
-            <button
-                class="close-btn"
-                onclick="closeDetailsModal()">
-                ✕
-            </button>
-
-        </div>
-
-        <div
-            class="details-list"
-            id="detailsContent">
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ================= INVENTORY MODAL ================= -->
-
-<div
-    class="modal"
-    id="inventoryModal">
-
-    <div class="modal-box">
-
-        <div class="modal-header">
-
-            <h3>
-                مدیریت موجودی
-            </h3>
-
-            <button
-                class="close-btn"
-                onclick="closeInventoryModal()">
-                ✕
-            </button>
-
-        </div>
-
-
-        <div class="form-note">
+        <p>
 
             موجودی فعلی:
+
             <strong id="currentStock">
                 0
             </strong>
 
-        </div>
+        </p>
 
 
-        <div class="form-group">
-
-            <label>
-                تعداد
-            </label>
+        <div class="inventory-row">
 
             <input
+                id="inventoryQuantity"
                 type="number"
-                id="inventoryAmount"
                 min="1"
-                value="1">
+                placeholder="تعداد"
+            >
+
+
+            <input
+                id="inventoryReason"
+                type="text"
+                placeholder="دلیل تغییر موجودی"
+            >
 
         </div>
 
 
-        <div
-            class="inventory-buttons"
-            style="margin-top:15px;">
+        <div class="inventory-row">
 
             <button
-                class="add-stock"
+                class="inventory-add"
                 onclick="changeInventory('add')">
 
-                ➕ افزایش موجودی
+                ➕ افزایش
 
             </button>
 
+
             <button
-                class="remove-stock"
+                class="inventory-remove"
                 onclick="changeInventory('remove')">
 
-                ➖ کاهش موجودی
+                ➖ کاهش
 
             </button>
 
         </div>
 
-    </div>
 
-</div>
-
-
-<!-- ================= SCANNER MODAL ================= -->
-
-<div
-    class="modal"
-    id="scannerModal">
-
-    <div class="modal-box">
-
-        <div class="modal-header">
+        <div class="history">
 
             <h3>
-                📷 اسکن بارکد
+                📋 تاریخچه موجودی
             </h3>
 
-            <button
-                class="close-btn"
-                onclick="closeScanner()">
-                ✕
-            </button>
+
+            <div id="historyList">
+
+                در حال دریافت...
+
+            </div>
 
         </div>
-
-        <div id="reader"></div>
 
     </div>
 
 </div>
 
-
-<script src="https://unpkg.com/html5-qrcode"></script>
 
 <script>
 
-    /* =========================================================
-       SETTINGS
-    ========================================================= */
+/*
+==================================================
+  IMPORTANT
+  Render / Production Ready
+==================================================
+*/
 
-    const API_URL = "http://localhost:5000";
-
-    const token = localStorage.getItem("token");
-
-    let seller = JSON.parse(
-        localStorage.getItem("seller") || "null"
-    );
-
-    let products = [];
-
-    let editingProductId = null;
-
-    let inventoryProductId = null;
-
-    let scanner = null;
+const API_URL = "";
 
 
-    /* =========================================================
-       AUTH
-    ========================================================= */
+let token =
+    localStorage.getItem("token");
 
-    function authHeaders() {
 
-        return {
-            "Authorization": "Bearer " + token
-        };
+let products = [];
+
+
+let selectedInventoryProduct = null;
+
+
+/*
+==================================================
+  AUTH
+==================================================
+*/
+
+if (!token) {
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+/*
+==================================================
+  API
+==================================================
+*/
+
+async function api(
+    url,
+    options = {}
+) {
+
+    options.headers = {
+
+        ...(options.headers || {}),
+
+        Authorization:
+            `Bearer ${token}`
+
+    };
+
+
+    const response =
+        await fetch(
+            API_URL + url,
+            options
+        );
+
+
+    if (response.status === 401) {
+
+        localStorage.removeItem(
+            "token"
+        );
+
+        localStorage.removeItem(
+            "seller"
+        );
+
+        window.location.href =
+            "login.html";
+
+        return null;
 
     }
 
 
-    function logout() {
+    let data;
 
-        localStorage.removeItem("token");
+    try {
 
-        localStorage.removeItem("seller");
+        data =
+            await response.json();
 
-        window.location.href = "login.html";
+    }
+
+    catch {
+
+        throw new Error(
+            "پاسخ نامعتبر از سرور دریافت شد."
+        );
 
     }
 
 
-    if (!token) {
+    if (!response.ok) {
 
-        window.location.href = "login.html";
+        throw new Error(
+            data.message ||
+            "خطا در ارتباط با سرور"
+        );
 
     }
 
 
-    /* =========================================================
-       DATE
-    ========================================================= */
+    return data;
 
-    function getTodayJalali() {
+}
 
-        return new Intl.DateTimeFormat(
+
+/*
+==================================================
+  PROFILE
+==================================================
+*/
+
+async function loadProfile() {
+
+    try {
+
+        const data =
+            await api(
+                "/api/profile"
+            );
+
+
+        if (!data) return;
+
+
+        const seller =
+            data.seller ||
+            data;
+
+
+        document
+            .getElementById("sellerName")
+            .textContent =
+
+            `${seller.first_name || ""} ${seller.last_name || ""}`.trim()
+
+            ||
+
+            seller.username
+
+            ||
+
+            "فروشنده";
+
+
+        document
+            .getElementById("storeInfo")
+            .textContent =
+
+            `${seller.store_name || "فروشگاه"} | ${seller.store_type || ""} | ${seller.city || ""}`;
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+
+/*
+==================================================
+  PRODUCTS
+==================================================
+*/
+
+async function loadProducts() {
+
+    try {
+
+        const data =
+            await api(
+                "/api/products"
+            );
+
+
+        if (!data) return;
+
+
+        products =
+            Array.isArray(data)
+
+                ? data
+
+                : (
+                    data.products ||
+                    []
+                );
+
+
+        renderProducts();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+
+        document
+            .getElementById("products")
+            .innerHTML =
+
+            `
+            <div
+                style="
+                    background:white;
+                    padding:20px;
+                    border-radius:15px;
+                "
+            >
+
+                خطا در دریافت کالاها
+
+            </div>
+            `;
+
+    }
+
+}
+
+
+/*
+==================================================
+  JALALI DATE
+==================================================
+*/
+
+function getToday() {
+
+    const parts =
+        new Intl.DateTimeFormat(
+
             "fa-IR-u-ca-persian",
+
             {
                 year: "numeric",
                 month: "2-digit",
                 day: "2-digit"
             }
-        ).format(new Date());
 
-    }
-
-
-    function normalizeJalaliDate(value) {
-
-        if (!value) return "";
-
-        return value
-            .replace(/[۰-۹]/g, d =>
-                "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
-            )
-            .replace(/-/g, "/")
-            .replace(/\./g, "/")
-            .replace(/\s/g, "");
-
-    }
-
-
-    function div(a, b) {
-
-        return Math.floor(a / b);
-
-    }
-
-
-    function jalaliToGregorian(jy, jm, jd) {
-
-        jy = Number(jy);
-
-        jm = Number(jm);
-
-        jd = Number(jd);
-
-        let gy;
-
-        if (jy > 979) {
-
-            gy = 1600;
-
-            jy -= 979;
-
-        } else {
-
-            gy = 621;
-
-        }
-
-        let days =
-            (365 * jy) +
-            div(jy, 33) * 8 +
-            div((jy % 33) + 3, 4) +
-            78 +
-            jd +
-            (jm < 7
-                ? (jm - 1) * 31
-                : ((jm - 7) * 30 + 186));
-
-        gy += 400 * div(days, 146097);
-
-        days %= 146097;
-
-        if (days > 36524) {
-
-            gy += 100 * div(--days, 36524);
-
-            days %= 36524;
-
-            if (days >= 365) {
-
-                days++;
-
-            }
-
-        }
-
-        gy += 4 * div(days, 1461);
-
-        days %= 1461;
-
-        if (days > 365) {
-
-            gy += div(days - 1, 365);
-
-            days = (days - 1) % 365;
-
-        }
-
-        let gd = days + 1;
-
-        const leap =
-            (gy % 4 === 0 && gy % 100 !== 0) ||
-            gy % 400 === 0;
-
-        const monthDays = [
-            0,
-            31,
-            leap ? 29 : 28,
-            31,
-            30,
-            31,
-            30,
-            31,
-            31,
-            30,
-            31,
-            30,
-            31
-        ];
-
-        let gm = 1;
-
-        while (
-            gm <= 12 &&
-            gd > monthDays[gm]
-        ) {
-
-            gd -= monthDays[gm++];
-
-        }
-
-        return new Date(
-            gy,
-            gm - 1,
-            gd
+        ).formatToParts(
+            new Date()
         );
 
+
+    const y =
+        parts.find(
+            x => x.type === "year"
+        ).value;
+
+
+    const m =
+        parts.find(
+            x => x.type === "month"
+        ).value;
+
+
+    const d =
+        parts.find(
+            x => x.type === "day"
+        ).value;
+
+
+    return `${y}/${m}/${d}`;
+
+}
+
+
+/*
+==================================================
+  JALALI -> GREGORIAN
+==================================================
+*/
+
+function jalaliToGregorian(
+    jy,
+    jm,
+    jd
+) {
+
+    jy = Number(jy);
+    jm = Number(jm);
+    jd = Number(jd);
+
+
+    let gy;
+
+    if (jy > 979) {
+
+        gy = 1600;
+
+        jy -= 979;
+
+    }
+
+    else {
+
+        gy = 621;
+
     }
 
 
-    function validateJalaliDate(value) {
+    const days =
+        (365 * jy)
 
-        value = normalizeJalaliDate(value);
+        +
 
-        const match =
-            /^(\d{4})\/(\d{1,2})\/(\d{1,2})$/.exec(value);
+        Math.floor(jy / 33) * 8
 
-        if (!match) return false;
+        +
 
-        const year = Number(match[1]);
+        Math.floor(
+            ((jy % 33) + 3) / 4
+        )
 
-        const month = Number(match[2]);
+        +
 
-        const day = Number(match[3]);
+        78
 
-        if (
-            year < 1300 ||
-            year > 1500 ||
-            month < 1 ||
-            month > 12 ||
-            day < 1
-        ) {
+        +
 
-            return false;
+        jd
 
-        }
+        +
 
-        let maxDay;
-
-        if (month <= 6) {
-
-            maxDay = 31;
-
-        } else if (month <= 11) {
-
-            maxDay = 30;
-
-        } else {
-
-            maxDay = 30;
-
-        }
-
-        return day <= maxDay;
-
-    }
+        (
+            jm < 7
+                ? (jm - 1) * 31
+                : ((jm - 7) * 30) + 186
+        );
 
 
-    function getDaysRemaining(expirationDate) {
+    gy +=
+        400 *
+        Math.floor(
+            days / 146097
+        );
 
-        if (!expirationDate) return null;
 
-        expirationDate =
-            normalizeJalaliDate(expirationDate);
+    let remaining =
+        days % 146097;
 
-        const parts =
-            expirationDate.split("/");
 
-        if (parts.length !== 3) return null;
+    if (remaining > 36524) {
 
-        const date =
-            jalaliToGregorian(
-                Number(parts[0]),
-                Number(parts[1]),
-                Number(parts[2])
+        gy +=
+            100 *
+            Math.floor(
+                --remaining / 36524
             );
 
-        const today = new Date();
+        remaining %= 36524;
 
-        today.setHours(0, 0, 0, 0);
 
-        date.setHours(0, 0, 0, 0);
+        if (remaining >= 365) {
 
-        return Math.round(
-            (date - today) /
-            (1000 * 60 * 60 * 24)
-        );
+            remaining++;
+
+        }
 
     }
 
 
-    function getExpiryStatus(days) {
+    gy +=
+        4 *
+        Math.floor(
+            remaining / 1461
+        );
 
-        if (days === null) {
 
-            return {
-                className: "expiry-black",
-                text: "تاریخ نامعتبر"
-            };
+    remaining %= 1461;
 
-        }
 
-        if (days < 0) {
+    if (remaining > 365) {
 
-            return {
-                className: "expiry-black",
-                text: "منقضی شده"
-            };
+        gy +=
+            Math.floor(
+                (remaining - 1) / 365
+            );
 
-        }
+        remaining =
+            (remaining - 1) % 365;
 
-        if (days === 0) {
+    }
 
-            return {
-                className: "expiry-red",
-                text: "انقضای امروز"
-            };
 
-        }
+    let gd =
+        remaining + 1;
 
-        if (days < 7) {
 
-            return {
-                className: "expiry-red",
-                text: `${days} روز باقی‌مانده`
-            };
+    const leap =
+        (
+            gy % 4 === 0
+            &&
+            (
+                gy % 100 !== 0
+                ||
+                gy % 400 === 0
+            )
+        );
 
-        }
 
-        if (days <= 30) {
+    const monthDays = [
 
-            return {
-                className: "expiry-orange",
-                text: `${days} روز باقی‌مانده`
-            };
+        31,
 
-        }
+        leap ? 29 : 28,
+
+        31,
+
+        30,
+
+        31,
+
+        30,
+
+        31,
+
+        31,
+
+        30,
+
+        31,
+
+        30,
+
+        31
+
+    ];
+
+
+    let gm = 1;
+
+
+    while (
+        gd >
+        monthDays[gm - 1]
+    ) {
+
+        gd -=
+            monthDays[gm - 1];
+
+        gm++;
+
+    }
+
+
+    return {
+        year: gy,
+        month: gm,
+        day: gd
+    };
+
+}
+
+
+/*
+==================================================
+  DAYS LEFT
+==================================================
+*/
+
+function daysLeft(
+    expirationDate
+) {
+
+    if (!expirationDate)
+        return 0;
+
+
+    const parts =
+        String(expirationDate)
+            .replaceAll("-", "/")
+            .split("/");
+
+
+    if (
+        parts.length !== 3
+    ) {
+
+        return 0;
+
+    }
+
+
+    const converted =
+        jalaliToGregorian(
+            parts[0],
+            parts[1],
+            parts[2]
+        );
+
+
+    const date =
+        new Date(
+            converted.year,
+            converted.month - 1,
+            converted.day
+        );
+
+
+    const today =
+        new Date();
+
+
+    today.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    date.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    return Math.round(
+        (
+            date - today
+        )
+        /
+        (
+            1000 *
+            60 *
+            60 *
+            24
+        )
+    );
+
+}
+
+
+/*
+==================================================
+  EXPIRY INFO
+==================================================
+*/
+
+function expiryInfo(
+    date
+) {
+
+    const days =
+        daysLeft(date);
+
+
+    if (days < 0) {
 
         return {
-            className: "expiry-green",
-            text: `${days} روز باقی‌مانده`
+
+            text:
+                `⚫ منقضی شده (${Math.abs(days)} روز قبل)`,
+
+            className:
+                "black"
+
         };
 
     }
 
 
-    /* =========================================================
-       INITIALIZATION
-    ========================================================= */
+    if (days === 0) {
 
-    async function init() {
+        return {
 
-        document.getElementById("todayDate").textContent =
-            getTodayJalali();
+            text:
+                "🚨 امروز تاریخ انقضاست! 🚨",
 
-        if (seller) {
+            className:
+                "red"
 
-            document.getElementById("welcomeTitle").textContent =
-                `سلام ${seller.first_name || ""} ${seller.last_name || ""} 👋`;
-
-        }
-
-        await loadProducts();
+        };
 
     }
 
 
-    /* =========================================================
-       LOAD PRODUCTS
-    ========================================================= */
+    if (days < 7) {
 
-    async function loadProducts() {
+        return {
 
-        try {
+            text:
+                `🔴 ${days} روز تا انقضا`,
 
-            const response =
-                await fetch(
-                    `${API_URL}/api/products`,
-                    {
-                        headers: authHeaders()
-                    }
-                );
+            className:
+                "red"
 
-            if (response.status === 401) {
+        };
 
-                logout();
+    }
 
-                return;
+
+    if (days <= 30) {
+
+        return {
+
+            text:
+                `🟠 ${days} روز تا انقضا`,
+
+            className:
+                "orange"
+
+        };
+
+    }
+
+
+    return {
+
+        text:
+            `🟢 ${days} روز تا انقضا`,
+
+        className:
+            "green"
+
+    };
+
+}
+
+
+/*
+==================================================
+  ESCAPE HTML
+==================================================
+*/
+
+function escapeHtml(
+    value
+) {
+
+    return String(value ?? "")
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/*
+==================================================
+  RENDER PRODUCTS
+==================================================
+*/
+
+function renderProducts() {
+
+    const container =
+        document.getElementById(
+            "products"
+        );
+
+
+    const search =
+        document
+            .getElementById("search")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const filter =
+        document
+            .getElementById("filter")
+            .value;
+
+
+    let filtered =
+        [...products];
+
+
+    /*
+    SEARCH
+    */
+
+    if (search) {
+
+        filtered =
+            filtered.filter(
+                product =>
+
+                    String(
+                        product.name || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
+
+                    ||
+
+                    String(
+                        product.barcode || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
+            );
+
+    }
+
+
+    /*
+    FILTER
+    */
+
+    filtered =
+        filtered.filter(
+            product => {
+
+                const days =
+                    daysLeft(
+                        product.expiration_date
+                    );
+
+
+                if (
+                    filter === "near"
+                ) {
+
+                    return (
+                        days >= 0
+                        &&
+                        days <= 30
+                    );
+
+                }
+
+
+                if (
+                    filter === "expired"
+                ) {
+
+                    return days < 0;
+
+                }
+
+
+                if (
+                    filter === "low"
+                ) {
+
+                    return (
+                        Number(
+                            product.stock
+                        )
+                        <=
+                        Number(
+                            product.min_stock || 0
+                        )
+                    );
+
+                }
+
+
+                return true;
 
             }
+        );
 
-            const result =
-                await response.json();
 
-            if (!response.ok) {
+    /*
+    CLOSEST EXPIRY FIRST
+    */
 
-                throw new Error(
-                    result.message || "خطا در دریافت کالاها"
-                );
+    filtered.sort(
+        (a, b) =>
 
-            }
+            daysLeft(
+                a.expiration_date
+            )
 
-            products =
-                Array.isArray(result)
-                    ? result
-                    : (result.products || []);
+            -
 
-            updateCategoryFilter();
+            daysLeft(
+                b.expiration_date
+            )
+    );
 
-            updateStats();
 
-            renderProducts();
+    updateStats();
 
-            showTodayExpiryNotification();
 
-        } catch (error) {
+    if (!filtered.length) {
 
-            console.error(error);
+        container.innerHTML =
 
-            document.getElementById("products").innerHTML = `
-                <div class="empty">
-                    ❌ دریافت اطلاعات کالاها با خطا مواجه شد.
-                    <br><br>
-                    ${error.message}
-                </div>
+            `
+            <div
+                style="
+                    background:white;
+                    padding:30px;
+                    border-radius:18px;
+                    text-align:center;
+                    grid-column:1/-1;
+                "
+            >
+
+                📦 کالایی پیدا نشد.
+
+            </div>
             `;
 
-        }
+        return;
 
     }
 
 
-    /* =========================================================
-       CATEGORY FILTER
-    ========================================================= */
+    container.innerHTML =
 
-    function updateCategoryFilter() {
+        filtered.map(
+            product => {
 
-        const select =
-            document.getElementById("categoryFilter");
-
-        const current =
-            select.value;
-
-        const categories =
-            [...new Set(
-                products
-                    .map(p => p.category)
-                    .filter(Boolean)
-            )];
-
-        select.innerHTML = `
-            <option value="all">
-                همه دسته‌ها
-            </option>
-        `;
-
-        categories.forEach(category => {
-
-            const option =
-                document.createElement("option");
-
-            option.value = category;
-
-            option.textContent = category;
-
-            select.appendChild(option);
-
-        });
-
-        if (
-            categories.includes(current)
-        ) {
-
-            select.value = current;
-
-        }
-
-    }
+                const expiry =
+                    expiryInfo(
+                        product.expiration_date
+                    );
 
 
-    /* =========================================================
-       STATS
-    ========================================================= */
+                const low =
 
-    function updateStats() {
+                    Number(
+                        product.stock
+                    )
 
-        let near = 0;
+                    <=
 
-        let expired = 0;
+                    Number(
+                        product.min_stock || 0
+                    );
 
-        let low = 0;
 
-        products.forEach(product => {
+                /*
+                IMAGE
+                */
+
+                const image =
+                    product.image
+
+                        ?
+
+                        `<img
+                            src="${escapeHtml(product.image)}"
+                            alt="${escapeHtml(product.name)}"
+                        >`
+
+                        :
+
+                        `<div class="no-image">
+                            📦
+                        </div>`;
+
+
+                return `
+
+                <div class="product">
+
+                    <div class="product-image">
+
+                        ${image}
+
+                    </div>
+
+
+                    <div class="product-body">
+
+
+                        <div class="product-name">
+
+                            ${escapeHtml(
+                                product.name
+                            )}
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            دسته‌بندی:
+
+                            ${escapeHtml(
+                                product.category ||
+                                "بدون دسته"
+                            )}
+
+                            <br>
+
+
+                            قیمت فروش:
+
+                            ${Number(
+                                product.sale_price || 0
+                            ).toLocaleString()}
+
+                            تومان
+
+                            <br>
+
+
+                            موجودی:
+
+                            <strong>
+                                ${product.stock || 0}
+                            </strong>
+
+                            <br>
+
+
+                            بارکد:
+
+                            ${escapeHtml(
+                                product.barcode || "-"
+                            )}
+
+                        </div>
+
+
+                        <div
+                            class="expiry ${expiry.className}"
+                        >
+
+                            ${expiry.text}
+
+                        </div>
+
+
+                        ${
+                            low
+
+                            ?
+
+                            `
+                            <div
+                                class="expiry red"
+                            >
+
+                                ⚠️ موجودی به حداقل رسیده
+
+                            </div>
+                            `
+
+                            :
+
+                            ""
+                        }
+
+
+                        <div class="actions">
+
+
+                            <button
+                                class="details"
+                                onclick="showDetails(${product.id})"
+                            >
+
+                                👁 جزئیات
+
+                            </button>
+
+
+                            <button
+                                class="inventory"
+                                onclick="openInventory(${product.id})"
+                            >
+
+                                📦 موجودی
+
+                            </button>
+
+
+                            <button
+                                class="edit"
+                                onclick="editProduct(${product.id})"
+                            >
+
+                                ✏️ ویرایش
+
+                            </button>
+
+
+                            <button
+                                class="delete"
+                                onclick="deleteProduct(${product.id})"
+                            >
+
+                                🗑 حذف
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                `;
+
+            }
+        ).join("");
+
+}
+
+
+/*
+==================================================
+  STATS
+==================================================
+*/
+
+function updateStats() {
+
+    let near = 0;
+
+    let expired = 0;
+
+    let low = 0;
+
+
+    products.forEach(
+        product => {
 
             const days =
-                getDaysRemaining(
+                daysLeft(
                     product.expiration_date
                 );
 
-            if (
-                days !== null &&
-                days >= 0 &&
-                days <= 30
-            ) {
-
-                near++;
-
-            }
 
             if (
-                days !== null &&
                 days < 0
             ) {
 
@@ -1920,1414 +1682,783 @@
 
             }
 
-            const stock =
-                Number(product.stock || 0);
+            else if (
+                days <= 30
+            ) {
 
-            const minimum =
-                Number(product.minimum_stock || 0);
+                near++;
 
-            if (stock <= minimum) {
+            }
+
+
+            if (
+                Number(
+                    product.stock
+                )
+                <=
+                Number(
+                    product.min_stock || 0
+                )
+            ) {
 
                 low++;
 
             }
 
-        });
-
-        document.getElementById("totalProducts").textContent =
-            products.length;
-
-        document.getElementById("nearExpiry").textContent =
-            near;
-
-        document.getElementById("expired").textContent =
-            expired;
-
-        document.getElementById("lowStock").textContent =
-            low;
-
-    }
-
-
-    /* =========================================================
-       RENDER PRODUCTS
-    ========================================================= */
-
-    function renderProducts() {
-
-        const container =
-            document.getElementById("products");
-
-        const search =
-            document
-                .getElementById("search")
-                .value
-                .trim()
-                .toLowerCase();
-
-        const filter =
-            document.getElementById("filter").value;
-
-        const category =
-            document.getElementById("categoryFilter").value;
-
-
-        let list =
-            [...products];
-
-
-        /* SEARCH */
-
-        if (search) {
-
-            list =
-                list.filter(product => {
-
-                    const name =
-                        String(
-                            product.name || ""
-                        ).toLowerCase();
-
-                    const barcode =
-                        String(
-                            product.barcode || ""
-                        ).toLowerCase();
-
-                    return (
-                        name.includes(search) ||
-                        barcode.includes(search)
-                    );
-
-                });
-
         }
+    );
 
 
-        /* CATEGORY */
+    document
+        .getElementById(
+            "totalProducts"
+        )
+        .textContent =
+        products.length;
 
-        if (category !== "all") {
 
-            list =
-                list.filter(
-                    product =>
-                        product.category === category
-                );
+    document
+        .getElementById(
+            "nearExpiry"
+        )
+        .textContent =
+        near;
 
-        }
 
+    document
+        .getElementById(
+            "expired"
+        )
+        .textContent =
+        expired;
 
-        /* FILTER */
 
-        list =
-            list.filter(product => {
+    document
+        .getElementById(
+            "lowStock"
+        )
+        .textContent =
+        low;
 
-                const days =
-                    getDaysRemaining(
-                        product.expiration_date
-                    );
+}
 
-                const stock =
-                    Number(product.stock || 0);
 
-                const minimum =
-                    Number(product.minimum_stock || 0);
+/*
+==================================================
+  INVENTORY
+==================================================
+*/
 
-                if (filter === "near") {
+async function openInventory(
+    id
+) {
 
-                    return (
-                        days !== null &&
-                        days >= 0 &&
-                        days <= 30
-                    );
-
-                }
-
-                if (filter === "expired") {
-
-                    return (
-                        days !== null &&
-                        days < 0
-                    );
-
-                }
-
-                if (filter === "low") {
-
-                    return stock <= minimum;
-
-                }
-
-                if (filter === "new") {
-
-                    return product.id;
-
-                }
-
-                return true;
-
-            });
-
-
-        /*
-         * مهم:
-         * کالاهایی که امروز منقضی می‌شوند
-         * همیشه بالاتر از بقیه قرار می‌گیرند.
-         */
-
-        list.sort((a, b) => {
-
-            const daysA =
-                getDaysRemaining(
-                    a.expiration_date
-                );
-
-            const daysB =
-                getDaysRemaining(
-                    b.expiration_date
-                );
-
-            /*
-             * اول انقضای امروز
-             */
-
-            if (daysA === 0 && daysB !== 0) {
-
-                return -1;
-
-            }
-
-            if (daysB === 0 && daysA !== 0) {
-
-                return 1;
-
-            }
-
-            /*
-             * بعد نزدیک‌ترین تاریخ انقضا
-             */
-
-            if (
-                daysA !== null &&
-                daysB !== null
-            ) {
-
-                return daysA - daysB;
-
-            }
-
-            return 0;
-
-        });
-
-
-        document.getElementById("productCount").textContent =
-            `${list.length} کالا`;
-
-
-        if (list.length === 0) {
-
-            container.innerHTML = `
-                <div class="empty">
-                    <div style="font-size:45px;margin-bottom:10px;">
-                        📦
-                    </div>
-
-                    کالایی برای نمایش وجود ندارد.
-                </div>
-            `;
-
-            return;
-
-        }
-
-
-        container.innerHTML =
-            list.map(product =>
-                createProductCard(product)
-            ).join("");
-
-    }
-
-
-    /* =========================================================
-       PRODUCT CARD
-    ========================================================= */
-
-    function createProductCard(product) {
-
-        const days =
-            getDaysRemaining(
-                product.expiration_date
-            );
-
-        const status =
-            getExpiryStatus(days);
-
-        const stock =
-            Number(product.stock || 0);
-
-        const minimum =
-            Number(product.minimum_stock || 0);
-
-        const stockClass =
-            stock <= minimum
-                ? "stock-low"
-                : "stock-good";
-
-
-        const image =
-            product.image
-                ? `
-                    <img
-                        src="${API_URL}${product.image}"
-                        alt="${escapeHtml(product.name || "")}"
-                    >
-                `
-                : `
-                    <div class="no-image">
-                        📦
-                    </div>
-                `;
-
-
-        return `
-
-            <article class="product-card">
-
-                <div class="product-image">
-
-                    ${image}
-
-                    <div class="expiry-badge ${status.className}">
-                        ${status.text}
-                    </div>
-
-                </div>
-
-
-                <div class="product-body">
-
-                    <h4 title="${escapeHtml(product.name || "")}">
-                        ${escapeHtml(product.name || "بدون نام")}
-                    </h4>
-
-                    <span class="category">
-                        ${escapeHtml(product.category || "بدون دسته")}
-                    </span>
-
-
-                    <div class="product-info">
-
-                        <div class="info-item">
-
-                            <small>
-                                قیمت فروش
-                            </small>
-
-                            <strong>
-                                ${formatNumber(product.sale_price)}
-                                تومان
-                            </strong>
-
-                        </div>
-
-
-                        <div class="info-item">
-
-                            <small>
-                                موجودی
-                            </small>
-
-                            <strong class="${stockClass}">
-                                ${stock}
-                            </strong>
-
-                        </div>
-
-
-                        <div class="info-item">
-
-                            <small>
-                                تولید
-                            </small>
-
-                            <strong>
-                                ${product.production_date || "-"}
-                            </strong>
-
-                        </div>
-
-
-                        <div class="info-item">
-
-                            <small>
-                                انقضا
-                            </small>
-
-                            <strong>
-                                ${product.expiration_date || "-"}
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="product-actions">
-
-                        <button
-                            onclick="showDetails(${product.id})"
-                            title="جزئیات">
-
-                            👁️
-
-                        </button>
-
-
-                        <button
-                            onclick="editProduct(${product.id})"
-                            title="ویرایش">
-
-                            ✏️
-
-                        </button>
-
-
-                        <button
-                            onclick="openInventory(${product.id})"
-                            title="موجودی">
-
-                            📊
-
-                        </button>
-
-
-                        <button
-                            onclick="deleteProduct(${product.id})"
-                            title="حذف">
-
-                            🗑️
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        `;
-
-    }
-
-
-    /* =========================================================
-       ESCAPE HTML
-    ========================================================= */
-
-    function escapeHtml(value) {
-
-        return String(value ?? "")
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-
-    }
-
-
-    function formatNumber(value) {
-
-        const number =
-            Number(value || 0);
-
-        return number.toLocaleString("fa-IR");
-
-    }
-
-
-    /* =========================================================
-       TODAY EXPIRY NOTIFICATION
-    ========================================================= */
-
-    function showTodayExpiryNotification() {
-
-        const notification =
-            document.getElementById(
-                "expiryNotification"
-            );
-
-        const title =
-            document.getElementById(
-                "notificationTitle"
-            );
-
-        const text =
-            document.getElementById(
-                "notificationText"
-            );
-
-
-        if (
-            !products ||
-            products.length === 0
-        ) {
-
-            notification.classList.remove("show");
-
-            return;
-
-        }
-
-
-        const todayProducts =
-            products.filter(product => {
-
-                const days =
-                    getDaysRemaining(
-                        product.expiration_date
-                    );
-
-                return days === 0;
-
-            });
-
-
-        if (todayProducts.length === 0) {
-
-            notification.classList.remove("show");
-
-            return;
-
-        }
-
-
-        const names =
-            todayProducts.map(
-                product =>
-                    product.name ||
-                    "کالای بدون نام"
-            );
-
-
-        title.textContent =
-            "🔴 هشدار انقضای امروز";
-
-
-        if (names.length === 1) {
-
-            text.textContent =
-                `کالای «${names[0]}» امروز به تاریخ انقضا می‌رسد.`;
-
-        } else {
-
-            text.textContent =
-                `${names.length} کالا امروز به تاریخ انقضا می‌رسند: ${names.join("، ")}`;
-
-        }
-
-
-        notification.classList.add("show");
-
-
-        clearTimeout(
-            window.expiryNotificationTimer
+    const product =
+        products.find(
+            x => x.id === id
         );
 
 
-        window.expiryNotificationTimer =
-            setTimeout(() => {
+    if (!product)
+        return;
 
-                notification.classList.remove("show");
 
-            }, 15000);
+    selectedInventoryProduct =
+        product;
+
+
+    document
+        .getElementById(
+            "inventoryProductName"
+        )
+        .textContent =
+        product.name;
+
+
+    document
+        .getElementById(
+            "currentStock"
+        )
+        .textContent =
+        product.stock || 0;
+
+
+    document
+        .getElementById(
+            "inventoryQuantity"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "inventoryReason"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "inventoryModal"
+        )
+        .classList
+        .add("active");
+
+
+    await loadInventoryHistory(id);
+
+}
+
+
+/*
+==================================================
+  CLOSE INVENTORY
+==================================================
+*/
+
+function closeInventory() {
+
+    document
+        .getElementById(
+            "inventoryModal"
+        )
+        .classList
+        .remove("active");
+
+
+    selectedInventoryProduct =
+        null;
+
+}
+
+
+/*
+==================================================
+  CHANGE INVENTORY
+==================================================
+*/
+
+async function changeInventory(
+    type
+) {
+
+    if (
+        !selectedInventoryProduct
+    )
+        return;
+
+
+    const quantity =
+        Number(
+            document
+                .getElementById(
+                    "inventoryQuantity"
+                )
+                .value
+        );
+
+
+    const reason =
+        document
+            .getElementById(
+                "inventoryReason"
+            )
+            .value
+            .trim();
+
+
+    if (
+        !quantity ||
+        quantity <= 0
+    ) {
+
+        alert(
+            "تعداد را وارد کنید."
+        );
+
+        return;
 
     }
 
 
-    function closeExpiryNotification() {
+    try {
+
+        await api(
+
+            `/api/products/${selectedInventoryProduct.id}/inventory`,
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type":
+                        "application/json"
+
+                },
+
+                body:
+                    JSON.stringify({
+
+                        type,
+
+                        quantity,
+
+                        reason
+
+                    })
+
+            }
+
+        );
+
+
+        alert(
+
+            type === "add"
+
+                ?
+
+                "موجودی با موفقیت افزایش یافت."
+
+                :
+
+                "موجودی با موفقیت کاهش یافت."
+
+        );
+
+
+        await loadProducts();
+
+
+        selectedInventoryProduct =
+
+            products.find(
+
+                x =>
+                    x.id ===
+                    selectedInventoryProduct.id
+
+            );
+
 
         document
-            .getElementById("expiryNotification")
-            .classList.remove("show");
+            .getElementById(
+                "currentStock"
+            )
+            .textContent =
+            selectedInventoryProduct.stock;
+
+
+        await loadInventoryHistory(
+            selectedInventoryProduct.id
+        );
+
+
+        document
+            .getElementById(
+                "inventoryQuantity"
+            )
+            .value = "";
 
     }
 
+    catch (error) {
 
-    /* =========================================================
-       ADD PRODUCT
-    ========================================================= */
-
-    function openAddModal() {
-
-        editingProductId = null;
-
-        document.getElementById("modalTitle").textContent =
-            "افزودن کالا";
-
-        document.getElementById("productForm").reset();
-
-        document.getElementById("imagePreview").style.display =
-            "none";
-
-        document.getElementById("productModal")
-            .classList.add("show");
+        alert(
+            error.message
+        );
 
     }
 
-
-    function closeProductModal() {
-
-        document.getElementById("productModal")
-            .classList.remove("show");
-
-    }
+}
 
 
-    /* =========================================================
-       IMAGE PREVIEW
-    ========================================================= */
+/*
+==================================================
+  HISTORY
+==================================================
+*/
 
-    function previewImage(event) {
+async function loadInventoryHistory(
+    id
+) {
 
-        const file =
-            event.target.files[0];
-
-        const preview =
-            document.getElementById("imagePreview");
-
-
-        if (!file) {
-
-            preview.style.display = "none";
-
-            return;
-
-        }
+    const list =
+        document.getElementById(
+            "historyList"
+        );
 
 
-        const reader =
-            new FileReader();
+    list.innerHTML =
+        "در حال دریافت تاریخچه...";
 
 
-        reader.onload =
-            function(e) {
+    try {
 
-                preview.src =
-                    e.target.result;
-
-                preview.style.display =
-                    "block";
-
-            };
-
-
-        reader.readAsDataURL(file);
-
-    }
-
-
-    /* =========================================================
-       SAVE PRODUCT
-    ========================================================= */
-
-    async function saveProduct(event) {
-
-        event.preventDefault();
-
-
-        const name =
-            document.getElementById("productName")
-                .value.trim();
-
-        const category =
-            document.getElementById("productCategory")
-                .value.trim();
-
-        const purchasePrice =
-            document.getElementById("purchasePrice")
-                .value;
-
-        const salePrice =
-            document.getElementById("salePrice")
-                .value;
-
-        const stock =
-            document.getElementById("stock")
-                .value;
-
-        const minimumStock =
-            document.getElementById("minimumStock")
-                .value;
-
-        const productionDate =
-            normalizeJalaliDate(
-                document.getElementById("productionDate")
-                    .value.trim()
+        const data =
+            await api(
+                `/api/products/${id}/inventory-history`
             );
 
-        const expirationDate =
-            normalizeJalaliDate(
-                document.getElementById("expirationDate")
-                    .value.trim()
-            );
 
-        const barcode =
-            document.getElementById("barcode")
-                .value.trim();
+        const history =
+            Array.isArray(data)
 
-        const description =
-            document.getElementById("description")
-                .value.trim();
+                ?
 
-        const imageInput =
-            document.getElementById("productImage");
+                data
 
+                :
 
-        /* VALIDATE DATES */
-
-        if (!validateJalaliDate(productionDate)) {
-
-            alert(
-                "تاریخ تولید معتبر نیست.\nمثال صحیح: 1405/06/30"
-            );
-
-            return;
-
-        }
-
-
-        if (!validateJalaliDate(expirationDate)) {
-
-            alert(
-                "تاریخ انقضا معتبر نیست.\nمثال صحیح: 1405/07/30"
-            );
-
-            return;
-
-        }
-
-
-        const productionParts =
-            productionDate.split("/");
-
-        const expirationParts =
-            expirationDate.split("/");
-
-
-        const productionGregorian =
-            jalaliToGregorian(
-                productionParts[0],
-                productionParts[1],
-                productionParts[2]
-            );
-
-        const expirationGregorian =
-            jalaliToGregorian(
-                expirationParts[0],
-                expirationParts[1],
-                expirationParts[2]
-            );
+                (
+                    data.history ||
+                    []
+                );
 
 
         if (
-            expirationGregorian <
-            productionGregorian
+            !history.length
         ) {
 
-            alert(
-                "تاریخ انقضا نمی‌تواند قبل از تاریخ تولید باشد."
-            );
+            list.innerHTML =
+                "هنوز تغییری برای این کالا ثبت نشده است.";
 
             return;
 
         }
 
 
-        try {
+        list.innerHTML =
 
-            const formData =
-                new FormData();
+            history
+                .map(
+                    item => {
 
+                        const icon =
 
-            formData.append(
-                "name",
-                name
-            );
+                            item.type === "add"
 
-            formData.append(
-                "category",
-                category
-            );
+                                ?
 
-            formData.append(
-                "purchase_price",
-                purchasePrice || 0
-            );
+                                "🟢"
 
-            formData.append(
-                "sale_price",
-                salePrice || 0
-            );
+                                :
 
-            formData.append(
-                "stock",
-                stock || 0
-            );
-
-            formData.append(
-                "minimum_stock",
-                minimumStock || 0
-            );
-
-            formData.append(
-                "production_date",
-                productionDate
-            );
-
-            formData.append(
-                "expiration_date",
-                expirationDate
-            );
-
-            formData.append(
-                "barcode",
-                barcode
-            );
-
-            formData.append(
-                "description",
-                description
-            );
+                                "🔴";
 
 
-            if (
-                imageInput.files &&
-                imageInput.files[0]
-            ) {
+                        const action =
 
-                formData.append(
-                    "image",
-                    imageInput.files[0]
-                );
+                            item.type === "add"
 
-            }
+                                ?
 
+                                "افزایش موجودی"
 
-            const url =
-                editingProductId
-                    ? `${API_URL}/api/products/${editingProductId}`
-                    : `${API_URL}/api/products`;
+                                :
+
+                                "کاهش موجودی";
 
 
-            const method =
-                editingProductId
-                    ? "PUT"
-                    : "POST";
+                        return `
 
+                            <div
+                                class="history-item"
+                            >
 
-            const response =
-                await fetch(
-                    url,
-                    {
-                        method,
-                        headers: authHeaders(),
-                        body: formData
+                                ${icon}
+
+                                <strong>
+                                    ${action}
+                                </strong>
+
+                                <br>
+
+                                تعداد:
+                                ${item.quantity}
+
+                                <br>
+
+                                موجودی:
+
+                                ${item.previous_stock}
+
+                                ←
+
+                                ${item.new_stock}
+
+                                <br>
+
+                                دلیل:
+
+                                ${escapeHtml(
+                                    item.reason || "-"
+                                )}
+
+                            </div>
+
+                        `;
+
                     }
-                );
-
-
-            const result =
-                await response.json();
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    result.message ||
-                    "ذخیره کالا انجام نشد."
-                );
-
-            }
-
-
-            alert(
-                editingProductId
-                    ? "کالا با موفقیت ویرایش شد."
-                    : "کالا با موفقیت ثبت شد."
-            );
-
-
-            closeProductModal();
-
-            await loadProducts();
-
-        } catch (error) {
-
-            console.error(error);
-
-            alert(
-                "خطا: " +
-                error.message
-            );
-
-        }
+                )
+                .join("");
 
     }
 
+    catch (error) {
 
-    /* =========================================================
-       EDIT PRODUCT
-    ========================================================= */
+        list.innerHTML =
+            "خطا در دریافت تاریخچه.";
 
-    function editProduct(id) {
-
-        const product =
-            products.find(
-                p => Number(p.id) === Number(id)
-            );
-
-
-        if (!product) {
-
-            alert("کالا پیدا نشد.");
-
-            return;
-
-        }
-
-
-        editingProductId =
-            product.id;
-
-
-        document.getElementById("modalTitle").textContent =
-            "ویرایش کالا";
-
-
-        document.getElementById("productName").value =
-            product.name || "";
-
-
-        document.getElementById("productCategory").value =
-            product.category || "";
-
-
-        document.getElementById("purchasePrice").value =
-            product.purchase_price || "";
-
-
-        document.getElementById("salePrice").value =
-            product.sale_price || "";
-
-
-        document.getElementById("stock").value =
-            product.stock || 0;
-
-
-        document.getElementById("minimumStock").value =
-            product.minimum_stock || 0;
-
-
-        document.getElementById("productionDate").value =
-            product.production_date || "";
-
-
-        document.getElementById("expirationDate").value =
-            product.expiration_date || "";
-
-
-        document.getElementById("barcode").value =
-            product.barcode || "";
-
-
-        document.getElementById("description").value =
-            product.description || "";
-
-
-        const preview =
-            document.getElementById("imagePreview");
-
-
-        if (product.image) {
-
-            preview.src =
-                `${API_URL}${product.image}`;
-
-            preview.style.display =
-                "block";
-
-        } else {
-
-            preview.style.display =
-                "none";
-
-        }
-
-
-        document.getElementById("productModal")
-            .classList.add("show");
+        console.error(error);
 
     }
 
+}
 
-    /* =========================================================
-       DETAILS
-    ========================================================= */
 
-    function showDetails(id) {
+/*
+==================================================
+  DETAILS
+==================================================
+*/
 
-        const product =
-            products.find(
-                p => Number(p.id) === Number(id)
-            );
+function showDetails(
+    id
+) {
 
+    const product =
+        products.find(
+            x => x.id === id
+        );
 
-        if (!product) return;
 
+    if (!product)
+        return;
 
-        const days =
-            getDaysRemaining(
-                product.expiration_date
-            );
 
-        const status =
-            getExpiryStatus(days);
+    alert(
 
+`نام کالا: ${product.name}
 
-        document.getElementById("detailsContent").innerHTML = `
+دسته‌بندی: ${product.category || "-"}
 
-            <div class="detail-row">
-                <span>نام کالا</span>
-                <span>${escapeHtml(product.name || "-")}</span>
-            </div>
+قیمت خرید: ${Number(
+    product.purchase_price || 0
+).toLocaleString()} تومان
 
-            <div class="detail-row">
-                <span>دسته‌بندی</span>
-                <span>${escapeHtml(product.category || "-")}</span>
-            </div>
+قیمت فروش: ${Number(
+    product.sale_price || 0
+).toLocaleString()} تومان
 
-            <div class="detail-row">
-                <span>قیمت خرید</span>
-                <span>${formatNumber(product.purchase_price)} تومان</span>
-            </div>
+موجودی: ${product.stock || 0}
 
-            <div class="detail-row">
-                <span>قیمت فروش</span>
-                <span>${formatNumber(product.sale_price)} تومان</span>
-            </div>
+حداقل موجودی: ${product.min_stock || 0}
 
-            <div class="detail-row">
-                <span>موجودی</span>
-                <span>${formatNumber(product.stock)}</span>
-            </div>
+تاریخ تولید: ${product.production_date || "-"}
 
-            <div class="detail-row">
-                <span>حداقل موجودی</span>
-                <span>${formatNumber(product.minimum_stock)}</span>
-            </div>
+تاریخ انقضا: ${product.expiration_date || "-"}
 
-            <div class="detail-row">
-                <span>تاریخ تولید</span>
-                <span>${product.production_date || "-"}</span>
-            </div>
+بارکد: ${product.barcode || "-"}
 
-            <div class="detail-row">
-                <span>تاریخ انقضا</span>
-                <span>${product.expiration_date || "-"}</span>
-            </div>
+توضیحات: ${product.description || "-"}`
 
-            <div class="detail-row">
-                <span>وضعیت انقضا</span>
-                <span>${status.text}</span>
-            </div>
+    );
 
-            <div class="detail-row">
-                <span>بارکد</span>
-                <span>${escapeHtml(product.barcode || "-")}</span>
-            </div>
+}
 
-            <div class="detail-row">
-                <span>توضیحات</span>
-                <span>${escapeHtml(product.description || "-")}</span>
-            </div>
 
-        `;
+/*
+==================================================
+  DELETE PRODUCT
+==================================================
+*/
 
+async function deleteProduct(
+    id
+) {
 
-        document.getElementById("detailsModal")
-            .classList.add("show");
+    const product =
+        products.find(
+            x => x.id === id
+        );
 
-    }
 
+    if (!product)
+        return;
 
-    function closeDetailsModal() {
 
-        document.getElementById("detailsModal")
-            .classList.remove("show");
+    const confirmed =
+        confirm(
 
-    }
+            `آیا از حذف کالای «${product.name}» مطمئن هستید؟`
 
+        );
 
-    /* =========================================================
-       DELETE
-    ========================================================= */
 
-    async function deleteProduct(id) {
+    if (!confirmed)
+        return;
 
-        const product =
-            products.find(
-                p => Number(p.id) === Number(id)
-            );
 
+    try {
 
-        if (!product) return;
+        await api(
 
+            `/api/products/${id}`,
 
-        const confirmed =
-            confirm(
-                `آیا از حذف «${product.name}» مطمئن هستی؟`
-            );
-
-
-        if (!confirmed) return;
-
-
-        try {
-
-            const response =
-                await fetch(
-                    `${API_URL}/api/products/${id}`,
-                    {
-                        method: "DELETE",
-                        headers: authHeaders()
-                    }
-                );
-
-
-            const result =
-                await response.json();
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    result.message ||
-                    "حذف انجام نشد."
-                );
-
-            }
-
-
-            alert("کالا حذف شد.");
-
-            await loadProducts();
-
-        } catch (error) {
-
-            alert(
-                "خطا: " +
-                error.message
-            );
-
-        }
-
-    }
-
-
-    /* =========================================================
-       INVENTORY
-    ========================================================= */
-
-    function openInventory(id) {
-
-        const product =
-            products.find(
-                p => Number(p.id) === Number(id)
-            );
-
-
-        if (!product) return;
-
-
-        inventoryProductId =
-            product.id;
-
-
-        document.getElementById("currentStock")
-            .textContent =
-                product.stock || 0;
-
-
-        document.getElementById("inventoryAmount")
-            .value = 1;
-
-
-        document.getElementById("inventoryModal")
-            .classList.add("show");
-
-    }
-
-
-    function closeInventoryModal() {
-
-        document.getElementById("inventoryModal")
-            .classList.remove("show");
-
-        inventoryProductId = null;
-
-    }
-
-
-    async function changeInventory(type) {
-
-        if (!inventoryProductId) return;
-
-
-        const amount =
-            Number(
-                document.getElementById(
-                    "inventoryAmount"
-                ).value
-            );
-
-
-        if (!amount || amount < 1) {
-
-            alert("تعداد معتبر وارد کن.");
-
-            return;
-
-        }
-
-
-        try {
-
-            const response =
-                await fetch(
-                    `${API_URL}/api/products/${inventoryProductId}/inventory`,
-                    {
-                        method: "POST",
-                        headers: {
-                            ...authHeaders(),
-                            "Content-Type":
-                                "application/json"
-                        },
-                        body: JSON.stringify({
-                            type,
-                            amount
-                        })
-                    }
-                );
-
-
-            const result =
-                await response.json();
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    result.message ||
-                    "تغییر موجودی انجام نشد."
-                );
-
-            }
-
-
-            closeInventoryModal();
-
-            await loadProducts();
-
-        } catch (error) {
-
-            alert(
-                "خطا: " +
-                error.message
-            );
-
-        }
-
-    }
-
-
-    /* =========================================================
-       BARCODE SCANNER
-    ========================================================= */
-
-    function openScanner() {
-
-        document.getElementById("scannerModal")
-            .classList.add("show");
-
-
-        scanner =
-            new Html5Qrcode("reader");
-
-
-        scanner.start(
             {
-                facingMode: "environment"
-            },
+
+                method: "DELETE"
+
+            }
+
+        );
+
+
+        alert(
+            "کالا با موفقیت حذف شد."
+        );
+
+
+        await loadProducts();
+
+    }
+
+    catch (error) {
+
+        alert(
+            error.message
+        );
+
+    }
+
+}
+
+
+/*
+==================================================
+  EDIT PRODUCT
+==================================================
+*/
+
+async function editProduct(
+    id
+) {
+
+    const product =
+        products.find(
+            x => x.id === id
+        );
+
+
+    if (!product)
+        return;
+
+
+    const name =
+        prompt(
+            "نام کالا:",
+            product.name || ""
+        );
+
+
+    if (
+        name === null
+    )
+        return;
+
+
+    const salePrice =
+        prompt(
+            "قیمت فروش:",
+            product.sale_price || ""
+        );
+
+
+    if (
+        salePrice === null
+    )
+        return;
+
+
+    const minStock =
+        prompt(
+            "حداقل موجودی:",
+            product.min_stock || 0
+        );
+
+
+    if (
+        minStock === null
+    )
+        return;
+
+
+    try {
+
+        await api(
+
+            `/api/products/${id}`,
+
             {
-                fps: 10,
-                qrbox: {
-                    width: 280,
-                    height: 140
-                }
-            },
-            barcode => {
 
-                document.getElementById("barcode")
-                    .value = barcode;
+                method: "PUT",
 
+                headers: {
 
-                const found =
-                    products.find(
-                        p =>
-                            String(p.barcode || "") ===
-                            String(barcode)
-                    );
+                    "Content-Type":
+                        "application/json"
 
+                },
 
-                closeScanner();
+                body:
+                    JSON.stringify({
 
+                        ...product,
 
-                if (found) {
+                        name:
+                            name.trim(),
 
-                    showDetails(found.id);
+                        sale_price:
+                            Number(
+                                salePrice
+                            ),
 
-                } else {
+                        min_stock:
+                            Number(
+                                minStock
+                            )
 
-                    document.getElementById("productModal")
-                        .classList.add("show");
-
-                    alert(
-                        "بارکد پیدا شد؛ اطلاعات کالا را وارد کن."
-                    );
-
-                }
-
-            },
-            errorMessage => {
-
-                // خطاهای لحظه‌ای اسکن نادیده گرفته می‌شوند.
+                    })
 
             }
-        ).catch(error => {
 
-            console.error(error);
+        );
 
-            alert(
-                "دسترسی به دوربین امکان‌پذیر نیست.\n" +
-                "اجازه دوربین را فعال کن."
-            );
 
-            closeScanner();
+        alert(
+            "اطلاعات کالا با موفقیت ویرایش شد."
+        );
 
-        });
+
+        await loadProducts();
 
     }
 
+    catch (error) {
 
-    async function closeScanner() {
-
-        try {
-
-            if (scanner) {
-
-                await scanner.stop();
-
-                await scanner.clear();
-
-            }
-
-        } catch (error) {
-
-            console.log(error);
-
-        }
-
-
-        scanner = null;
-
-
-        document.getElementById("reader")
-            .innerHTML = "";
-
-
-        document.getElementById("scannerModal")
-            .classList.remove("show");
+        alert(
+            error.message
+        );
 
     }
 
-
-    /* =========================================================
-       AUTO UPDATE
-    ========================================================= */
-
-    setInterval(() => {
-
-        updateStats();
-
-        renderProducts();
-
-        showTodayExpiryNotification();
-
-        document.getElementById("todayDate").textContent =
-            getTodayJalali();
-
-    }, 60000);
+}
 
 
-    document.addEventListener(
-        "visibilitychange",
-        () => {
+/*
+==================================================
+  LOGOUT
+==================================================
+*/
 
-            if (!document.hidden) {
+function logout() {
 
-                loadProducts();
+    localStorage.removeItem(
+        "token"
+    );
 
-            }
-
-        }
+    localStorage.removeItem(
+        "seller"
     );
 
 
-    /* =========================================================
-       CLOSE MODALS WITH ESC
-    ========================================================= */
+    window.location.href =
+        "login.html";
 
-    document.addEventListener(
-        "keydown",
-        event => {
+}
 
-            if (event.key === "Escape") {
 
-                closeProductModal();
+/*
+==================================================
+  INITIAL LOAD
+==================================================
+*/
 
-                closeDetailsModal();
+async function initializeDashboard() {
 
-                closeInventoryModal();
+    await loadProfile();
 
-                closeScanner();
+    await loadProducts();
 
-                closeExpiryNotification();
+}
 
-            }
+
+/*
+==================================================
+  REFRESH EXPIRY
+  EVERY MINUTE
+==================================================
+*/
+
+setInterval(
+
+    () => {
+
+        if (
+            document.visibilityState ===
+            "visible"
+        ) {
+
+            renderProducts();
 
         }
-    );
+
+    },
+
+    60 * 1000
+
+);
 
 
-    /* =========================================================
-       START
-    ========================================================= */
+/*
+==================================================
+  REFRESH WHEN TAB BECOMES ACTIVE
+==================================================
+*/
 
-    init();
+document.addEventListener(
+
+    "visibilitychange",
+
+    () => {
+
+        if (
+            document.visibilityState ===
+            "visible"
+        ) {
+
+            renderProducts();
+
+        }
+
+    }
+
+);
+
+
+/*
+==================================================
+  START
+==================================================
+*/
+
+initializeDashboard();
 
 </script>
 
 </body>
+
 </html>

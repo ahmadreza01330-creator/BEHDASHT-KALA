@@ -11,9 +11,14 @@ const db = require("./database");
 
 const app = express();
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+    console.error("JWT_SECRET is not set in environment variables.");
+    process.exit(1);
+}
 
 /* =========================
    MIDDLEWARE
@@ -26,6 +31,20 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+
+
+/* =========================
+   FRONTEND
+========================= */
+
+const frontendDir = path.join(
+    __dirname,
+    "../frontend"
+);
+
+app.use(
+    express.static(frontendDir)
+);
 
 
 /* =========================
@@ -160,7 +179,7 @@ app.use(
 ========================= */
 
 app.get(
-    "/",
+    "/api",
     (req, res) => {
 
         res.json({
@@ -923,34 +942,23 @@ app.put(
                 product.image;
 
 
-            if (
-                req.file
-            ) {
+            if (req.file) {
 
-                if (
-                    product.image
-                ) {
+                if (product.image) {
 
                     const oldFile =
                         path.join(
                             __dirname,
-                            product.image
-                                .replace(
-                                    "/uploads/",
-                                    "uploads/"
-                                )
+                            product.image.replace(
+                                "/uploads/",
+                                "uploads/"
+                            )
                         );
 
 
-                    if (
-                        fs.existsSync(
-                            oldFile
-                        )
-                    ) {
+                    if (fs.existsSync(oldFile)) {
 
-                        fs.unlinkSync(
-                            oldFile
-                        );
+                        fs.unlinkSync(oldFile);
 
                     }
 
@@ -968,30 +976,21 @@ app.put(
                 !req.file
             ) {
 
-                if (
-                    product.image
-                ) {
+                if (product.image) {
 
                     const oldFile =
                         path.join(
                             __dirname,
-                            product.image
-                                .replace(
-                                    "/uploads/",
-                                    "uploads/"
-                                )
+                            product.image.replace(
+                                "/uploads/",
+                                "uploads/"
+                            )
                         );
 
 
-                    if (
-                        fs.existsSync(
-                            oldFile
-                        )
-                    ) {
+                    if (fs.existsSync(oldFile)) {
 
-                        fs.unlinkSync(
-                            oldFile
-                        );
+                        fs.unlinkSync(oldFile);
 
                     }
 
@@ -1127,11 +1126,8 @@ app.patch(
             const result =
                 db.prepare(`
                     UPDATE products
-
                     SET stock = ?
-
                     WHERE id = ?
-
                     AND seller_id = ?
                 `).run(
 
@@ -1285,9 +1281,7 @@ app.post(
             let newStock;
 
 
-            if (
-                type === "in"
-            ) {
+            if (type === "in") {
 
                 newStock =
                     previousStock +
@@ -1304,9 +1298,7 @@ app.post(
             }
 
 
-            if (
-                newStock < 0
-            ) {
+            if (newStock < 0) {
 
                 return res.status(400).json({
 
@@ -1323,11 +1315,8 @@ app.post(
 
                     db.prepare(`
                         UPDATE products
-
                         SET stock = ?
-
                         WHERE id = ?
-
                         AND seller_id = ?
                     `).run(
 
@@ -1610,9 +1599,7 @@ app.delete(
                 db.prepare(`
                     SELECT *
                     FROM products
-
                     WHERE id = ?
-
                     AND seller_id = ?
                 `).get(
 
@@ -1635,52 +1622,30 @@ app.delete(
             }
 
 
-            /*
-            حذف تصویر
-            */
-
-            if (
-                product.image
-            ) {
+            if (product.image) {
 
                 const imagePath =
                     path.join(
-
                         __dirname,
-
-                        product.image
-                            .replace(
-                                "/uploads/",
-                                "uploads/"
-                            )
-
+                        product.image.replace(
+                            "/uploads/",
+                            "uploads/"
+                        )
                     );
 
 
-                if (
-                    fs.existsSync(
-                        imagePath
-                    )
-                ) {
+                if (fs.existsSync(imagePath)) {
 
-                    fs.unlinkSync(
-                        imagePath
-                    );
+                    fs.unlinkSync(imagePath);
 
                 }
 
             }
 
 
-            /*
-            حذف محصول
-            */
-
             db.prepare(`
                 DELETE FROM products
-
                 WHERE id = ?
-
                 AND seller_id = ?
             `).run(
 
@@ -1739,9 +1704,7 @@ app.use(
         }
 
 
-        if (
-            error
-        ) {
+        if (error) {
 
             return res.status(400).json({
 
@@ -1766,10 +1729,11 @@ app.use(
 
 app.listen(
     PORT,
+    "0.0.0.0",
     () => {
 
         console.log(
-            `Server running on http://localhost:${PORT}`
+            `Server running on port ${PORT}`
         );
 
     }

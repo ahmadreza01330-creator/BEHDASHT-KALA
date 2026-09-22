@@ -1,3 +1,4 @@
+```js
 const loginForm = document.getElementById("loginForm");
 const loginMessage = document.getElementById("message");
 
@@ -30,7 +31,7 @@ loginForm.addEventListener("submit", async function (event) {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/login",
+            "/api/login",
             {
                 method: "POST",
 
@@ -53,7 +54,10 @@ loginForm.addEventListener("submit", async function (event) {
         if (!response.ok) {
 
             loginMessage.textContent =
-                "❌ " + (result.message || "نام کاربری یا رمز عبور اشتباه است.");
+                "❌ " + (
+                    result.message ||
+                    "نام کاربری یا رمز عبور اشتباه است."
+                );
 
             loginMessage.className = "error";
 
@@ -117,3 +121,4 @@ loginForm.addEventListener("submit", async function (event) {
     }
 
 });
+```
